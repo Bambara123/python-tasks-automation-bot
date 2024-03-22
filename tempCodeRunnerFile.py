@@ -1,7 +1,6 @@
-import pyautogui
-import time
+from human_typer import Human_typer
 
+My_Typer = Human_typer(keyboard_layout = "qwerty", average_cpm = 190)
 
-icon_position = pyautogui.locateOnScreen("edit.png")
-
-print(icon_position)
+# Directly with keyboard 
+My_Typer.keyboard_type("my text")
