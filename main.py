@@ -4,6 +4,11 @@ import random
 
 import get_click_point
 
+
+
+
+
+
 time.sleep(5)
 
 icon_position_x1 = 6
