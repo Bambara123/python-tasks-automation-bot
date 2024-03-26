@@ -1,1 +1,1 @@
-time.sleep(sleep_time)
+  # pyautogui.mouseUp()
