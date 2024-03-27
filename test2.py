@@ -22,7 +22,6 @@ def call_functions_with_bias(bias_to_function1):
 
 point_1 = (100, 200)
 point_2 = (800, 800)
-import random
 
 
 # generate random amount of points to go.
@@ -76,12 +75,8 @@ def go_to_point2(point_2):
     x = point_2[0]
     y = point_2[1]
 
-    # move the mouse to position (100,100) on the screen in approximately 2 seconds
-    hc.move((x, y), 5)
-
-    # mouse click(left button)
-
-    hc.move((1800, 800), 10)
+    # move the mouse to position (100,100) on the screen in approximately generated seconds
+    hc.move((x, y), mouse_move_time())
 
 
 def mouse_move_time():
@@ -96,4 +91,17 @@ def mouse_move_time():
     return move_time
 
 
-print(mouse_move_time())
+def mouse_move_sleep_time():
+    choice = random.choices([0, 1, 2], weights=[90, 5, 5], k=1)[0]
+
+    if choice == 0:
+        move_sleep_time = 0
+    elif choice == 1:
+        move_sleep_time = random.uniform(0, 0.05)
+    else:
+        move_sleep_time = random.uniform(0.05, 5)
+
+    return move_sleep_time
+
+
+print(mouse_move_sleep_time())
