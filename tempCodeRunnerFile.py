@@ -1,1 +1,1 @@
-  # pyautogui.mouseUp()
+ go_to_point2(point_2)
