@@ -2,6 +2,7 @@ import pyautogui
 import time
 import random
 import string
+import ctypes
 
 
 # make the time delay between key presses. between 0.3 and 1 seconds.
@@ -49,12 +50,28 @@ def make_mistakes(last_letter):
 
 
 def type_letter_x(x):
-    
-    pyautogui.press("capslock")
-    pyautogui.press(x)
-    make_time_delay(90)
+    # Check if the letter is uppercase
+    if x.isupper():
+        # Check if Caps Lock is off
+        if not is_capslock_on():
+            # If it's off, turn it on
+            pyautogui.press("capslock")
+        # Type the letter
+        pyautogui.press(x.lower())
+    else:
+        # Check if Caps Lock is on
+        if is_capslock_on():
+            # If it's on, turn it off
+            pyautogui.press("capslock")
+        # Type the letter
+        pyautogui.press(x)
 
 
+def is_capslock_on():
+    hllDll = ctypes.WinDLL("User32.dll")
+    VK_CAPITAL = 0x14
+    return hllDll.GetKeyState(VK_CAPITAL)
 
 
-type_letter_x("X")
+# Test the function
+print(type_letter_x("K"))
