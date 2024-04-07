@@ -5,22 +5,24 @@ import string
 import ctypes
 
 
-# make the time delay between key presses. between 0.3 and 1 seconds.
-# for a long_delay, between 5 and 20 seconds.
-def make_time_delay(normal_delay_percentage):
-    long_delay = False
+# make the time delay between key presses. between (0.2, 0.5) seconds -> 80%, (0.5, 1) seconds -> 10%, (1, 10) seconds -> 10%
+def make_time_delay_normal():
+    delay_ranges = [(0.2, 0.5), (0.5, 1), (1, 10)]
+    chosen_range = random.choices(delay_ranges, weights=[80, 10, 10], k=1)[0]
 
-    long_delay = random.choices(
-        [0, 1], weights=[normal_delay_percentage, 100 - normal_delay_percentage], k=1
-    )[0]
+    sleep_time = random.uniform(*chosen_range)
 
-    sleep_time = random.uniform(0.3, 1) if not long_delay else random.uniform(5, 20)
-
-    time.sleep(sleep_time)
-    print(sleep_time)
+    return sleep_time
 
 
-make_time_delay(90)
+# make the time delay between wrong key presses. between (0.2, 0.5) seconds -> 90%, (0.5, 1) seconds -> 10%
+def make_time_delay_wrong():
+    delay_ranges = [(0.2, 0.5), (0.5, 1)]
+    chosen_range = random.choices(delay_ranges, weights=[90, 10], k=1)[0]
+
+    sleep_time = random.uniform(*chosen_range)
+
+    return sleep_time
 
 
 # imitate mistakes in typing.
@@ -30,6 +32,7 @@ def make_mistakes(last_letter):
 
     print(last_letter_upper)
 
+    # Will type letters wrongly between 1 to 3.
     amount_of_mistakes = random.randint(1, 3)
 
     for x in range(amount_of_mistakes):
@@ -39,17 +42,16 @@ def make_mistakes(last_letter):
 
         print(mistaken_char)
         pyautogui.typewrite(mistaken_char)
-        make_time_delay()
+        make_time_delay_wrong()
 
     for x in range(amount_of_mistakes):
         pyautogui.press("backspace")
-        make_time_delay()
+        random.uniform(
+            0.2, 0.5
+        )  # correct mistakes with a delay between 0.2 and 0.5 seconds.
 
 
-# type letter 'x'
-
-
-def type_letter_x(x):
+def type_char_x(x):
     # Check if the letter is uppercase
     if x.isupper():
         # Check if Caps Lock is off
@@ -73,5 +75,29 @@ def is_capslock_on():
     return hllDll.GetKeyState(VK_CAPITAL)
 
 
-# Test the function
-print(type_letter_x("K"))
+# type a word.
+def type_word(word):
+
+    for x in word:
+        mistakes = do_mistakes_or_not()
+
+        if mistakes:
+            make_mistakes(x)
+
+        else:
+            type_char_x(x)
+            make_time_delay_normal()
+
+
+def do_mistakes_or_not():
+    return random.choices([True, False], weights=[10, 90], k=1)[0]
+
+
+print(make_time_delay_wrong())
+
+
+#type_word("Hello bro!, HOW are you?")
+make_mistakes("0")
+
+
+# print(do_mistakes_or_not())

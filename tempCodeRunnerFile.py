@@ -1,1 +1,1 @@
- go_to_point2(point_2)
+ bro!, HOW are you?
