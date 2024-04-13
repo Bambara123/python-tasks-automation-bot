@@ -149,4 +149,4 @@ def get_mouse_position():
 
 time.sleep(2)
 
-go_to_point1_to_point2(get_mouse_position(), (400, 990))
+# go_to_point1_to_point2(get_mouse_position(), (400, 990))
