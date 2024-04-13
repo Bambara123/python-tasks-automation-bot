@@ -6,16 +6,16 @@
 
 <div align="center">
     <a href="https://github.com/yourusername/python-tasks-automation-bot/issues">
-        <img src="https://img.shields.io/github/issues/Bambara123/python-tasks-automation-bot" alt="GitHub issues">
+        <img src="https://img.shields.io/github/issues/bambara123/python-tasks-automation-bot" alt="GitHub issues">
     </a>
     <a href="https://github.com/yourusername/python-tasks-automation-bot/pulls">
-        <img src="https://img.shields.io/github/issues-pr/Bambara123/python-tasks-automation-bot" alt="GitHub pull requests">
+        <img src="https://img.shields.io/github/issues-pr/bambara123/python-tasks-automation-bot" alt="GitHub pull requests">
     </a>
     <a href="https://github.com/yourusername/python-tasks-automation-bot/releases">
-        <img src="https://img.shields.io/github/downloads/Bambara123/python-tasks-automation-bot/total" alt="GitHub downloads">
+        <img src="https://img.shields.io/github/downloads/bambara123/python-tasks-automation-bot/total" alt="GitHub downloads">
     </a>
     <a href="https://github.com/yourusername/python-tasks-automation-bot/releases">
-        <img src="https://img.shields.io/github/v/release/Bambara123/python-tasks-automation-bot" alt="GitHub release">
+        <img src="https://img.shields.io/github/v/release/bambara123/python-tasks-automation-bot" alt="GitHub release">
     </a>
 </div>
 
@@ -24,13 +24,12 @@
 ## 📜 Table of Content
 
 <ol style="list-style-type: decimal;">
-  <li><a href="#introduction">Introduction</a></li>
-  <li><a href="#installation">Installation</a></li>
+  <li><a href="#Introduction">Introduction</a></li>
   <li><a href="#getting-started">Getting Started</a></li>
 </ol>
 
 
-## 🚀 Introduction
+<h2 id="Introduction">🚀 Introduction</h2>
 This Python project aims to automate various tasks using the JY library. It provides functionalities for simulating human clicks, cursor movements, and utilizing computer vision capabilities with OpenCV.
 
 <h2 id="getting-started">🛠 Getting Started</h2>
