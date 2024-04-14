@@ -1,0 +1,1 @@
+TypeError: 'function' object is not subscriptable
