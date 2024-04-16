@@ -146,7 +146,7 @@ def get_mouse_position():
     print(position.x, position.y)
     return (position.x, position.y)
 
-
+time.sleep(2)
 time.sleep(2)
 
 # go_to_point1_to_point2(get_mouse_position(), (400, 990))
