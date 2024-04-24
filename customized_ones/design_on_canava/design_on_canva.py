@@ -1,35 +1,36 @@
-# import m_movement
-# import k_typing
-# import where_to_click
-
-
 import tkinter as tk
-from tkinter import filedialog
-
-# Function to open a file dialog and return the selected file's path
-def browse_files():
-    filename = filedialog.askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Image files", "*.jpg *.png"), ("all files", "*.*")))
-    return filename
-
-# Function to execute the script
-def execute_script():
-    # Here you can add the code to execute your script
-    pass
 
 # Create the main window
 window = tk.Tk()
 
-# Create a button to browse for files
-browse_button = tk.Button(window, text ="Browse", command = browse_files)
-browse_button.pack()
+# Create an entry field for the user input
+input_entry = tk.Entry(window)
+input_entry.pack()
 
-# Create an entry field for the variable
-variable_entry = tk.Entry(window)
-variable_entry.pack()
+# Create an entry field for the function name
+function_entry = tk.Entry(window)
+function_entry.pack()
 
-# Create a button to execute the script
-run_button = tk.Button(window, text ="Run", command = execute_script)
-run_button.pack()
+# Create an entry field for the coordinates
+coordinates_entry = tk.Entry(window)
+coordinates_entry.pack()
+
+# Create a checkbox for the click option
+click_var = tk.BooleanVar()
+click_checkbox = tk.Checkbutton(window, text="Click", variable=click_var)
+click_checkbox.pack()
+
+# Create a function to print the user input
+def print_input():
+    user_input = input_entry.get()
+    function_name = function_entry.get()
+    coordinates = coordinates_entry.get()
+    click_option = click_var.get()
+    print(user_input, function_name, coordinates, click_option)
+
+# Create a button to print the user input
+print_button = tk.Button(window, text="Print", command=print_input)
+print_button.pack()
 
 # Run the main loop
 window.mainloop()
